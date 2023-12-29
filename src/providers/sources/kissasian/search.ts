@@ -7,8 +7,8 @@ import { kissasianBase } from './common';
 
 export async function search(ctx: ScrapeContext, title: string, seasonNumber?: number) {
   const searchForm = new FormData();
-  searchForm.append('keyword', `${title} ${seasonNumber ?? ''}`.trim());
   searchForm.append('type', 'Drama');
+  searchForm.append('keyword', `${title} ${seasonNumber ?? ''}`.trim());
 
   const searchResults = await ctx.proxiedFetcher<string>('/Search/SearchSuggest', {
     baseUrl: kissasianBase,
