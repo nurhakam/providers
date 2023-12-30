@@ -1,14 +1,13 @@
-import { flags } from '@/entrypoint/utils/targets';
 import { makeEmbed } from '@/providers/base';
 
-export const mp4uploadScraper = makeEmbed({
-  id: 'mp4upload',
-  name: 'mp4upload',
-  rank: 170,
+export const vidmolyScraper = makeEmbed({
+  id: 'vidmoly',
+  name: 'vidmoly',
+  rank: 180,
   async scrape(ctx) {
     const embed = await ctx.proxiedFetcher<string>(ctx.url);
 
-    const playerSrcRegex = /(?<=player\.src\()\s*{\s*type:\s*"[^"]+",\s*src:\s*"([^"]+)"\s*}\s*(?=\);)/s;
+    const playerSrcRegex = /file:"([^"]+)"/;
     const playerSrc = embed.match(playerSrcRegex) ?? [];
 
     const streamUrl = playerSrc[1];
@@ -18,13 +17,16 @@ export const mp4uploadScraper = makeEmbed({
       stream: [
         {
           id: 'primary',
-          type: 'file',
-          flags: [flags.CORS_ALLOWED],
+          type: 'hls',
+          flags: [],
           captions: [],
+          playlist: streamUrl,
           qualities: {
             unknown: {
-              type: 'mp4',
-              url: streamUrl,
+              headers: {
+                // vidmoly requires this header on all streams
+                Referer: 'https://vidmoly.to/',
+              },
             },
           },
         },

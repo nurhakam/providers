@@ -38,12 +38,12 @@ export async function getEmbeds(
 
       const watchPage = load(watch);
 
-      const embedUrl = watchPage('#mVideo').attr('src');
+      const embedUrl = watchPage('#my_video_1, #mVideo').attr('src');
 
       if (!embedUrl) throw new Error('Embed not found');
 
       return {
-        embedId: provider.id,
+        embedId: provider.type,
         url: embedUrl,
       };
     }),

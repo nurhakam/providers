@@ -6,6 +6,7 @@ import { mp4uploadScraper } from '@/providers/embeds/mp4upload';
 import { streamsbScraper } from '@/providers/embeds/streamsb';
 import { upcloudScraper } from '@/providers/embeds/upcloud';
 import { upstreamScraper } from '@/providers/embeds/upstream';
+import { vidmolyScraper } from '@/providers/embeds/vidmoly';
 import { flixhqScraper } from '@/providers/sources/flixhq/index';
 import { goMoviesScraper } from '@/providers/sources/gomovies/index';
 import { kissAsianScraper } from '@/providers/sources/kissasian/index';
@@ -44,5 +45,6 @@ export function gatherAllEmbeds(): Array<Embed> {
     mixdropScraper,
     smashyStreamFScraper,
     smashyStreamDScraper,
+    vidmolyScraper,
   ];
 }

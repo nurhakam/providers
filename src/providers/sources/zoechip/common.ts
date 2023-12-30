@@ -31,12 +31,12 @@ export async function formatSource(
       case 'rabbitstream.net':
         embed.embedId = upcloudScraper.id;
         break;
-      case 'upstream.to':
-        embed.embedId = upstreamScraper.id;
-        break;
-      case 'mixdrop.co':
-        embed.embedId = mixdropScraper.id;
-        break;
+      // case 'upstream.to':
+      // embed.embedId = upstreamScraper.id;
+      // break;
+      // case 'mixdrop.co':
+      // embed.embedId = mixdropScraper.id;
+      // break;
       default:
         return null;
     }
