@@ -1,6 +1,6 @@
-import { mixdropScraper } from '@/providers/embeds/mixdrop';
+// import { mixdropScraper } from '@/providers/embeds/mixdrop';
 import { upcloudScraper } from '@/providers/embeds/upcloud';
-import { upstreamScraper } from '@/providers/embeds/upstream';
+// import { upstreamScraper } from '@/providers/embeds/upstream';
 import { getZoeChipSourceURL, getZoeChipSources } from '@/providers/sources/zoechip/scrape';
 import { MovieScrapeContext, ShowScrapeContext } from '@/utils/context';
 
